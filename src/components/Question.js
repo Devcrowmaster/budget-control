@@ -1,7 +1,7 @@
 import React,{Fragment,useState} from 'react';
 import Error from './Error';
 
-const Question = () => {
+const Question = ({saveBudget,saveRemaining}) => {
 
   //Definir el State
   const [quantify,saveQuantify] = useState(0);
@@ -29,6 +29,9 @@ const Question = () => {
 
     //Si pasa la validacion
     saveError(false);
+
+    saveBudget(quantify);
+    saveRemaining(quantify);
 
 
   }
