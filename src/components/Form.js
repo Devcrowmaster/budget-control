@@ -1,8 +1,28 @@
 import React, { useState } from 'react'
 
 const Form = () => {
+
+  const [name,saveName] = useState('');
+
+  const [quantify,saveQuantify] = useState(0);
+
+  //Cuando se Agrega un Gasto
+  const addExpenditure = e =>{
+    e.preventDefault();
+
+    //validar
+
+    //construir el gasto
+
+    //pasar el gasto al componente principal
+
+    //resetear el form
+  }
+
   return ( 
-    <form>
+    <form
+      onSubmit={addExpenditure}
+    >
       <h2>Agregar tus gastos aqui</h2>
 
       <div className="campo">
@@ -12,6 +32,8 @@ const Form = () => {
           type="text"
           className="u-full-width"
           placeholder="Ej. Transporte"
+          value={name}
+          onChange={e => saveName(e.target.value)}
         />
       </div>
       <div className="campo">
@@ -21,6 +43,8 @@ const Form = () => {
           type="number"
           className="u-full-width"
           placeholder="Ej. 300"
+          value={quantify}
+          onChange={e => saveQuantify(parseInt(e.target.value,10))}
         />
       </div>
       <input 
