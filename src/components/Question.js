@@ -22,7 +22,7 @@ const Question = () => {
         type="number" 
         className="u-full-width"
         placeholder="Coloca tu presupuesto"
-        onChange={defineBudget}
+        onChange={e => saveQuantify(parseInt(e.target.value,10))}
         />
       <input 
         type="submit"
