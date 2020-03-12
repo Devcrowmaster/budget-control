@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Error from './Error';
 import shortid from 'shortid';
 
-const Form = () => {
+const Form = ({addNewExpenditure}) => {
 
   const [name,saveName] = useState('');
 
@@ -27,11 +27,15 @@ const Form = () => {
       quantify,
       id: shortid.generate()
     }
-    console.log(expenditure);
+    // console.log(expenditure);
 
     //pasar el gasto al componente principal
 
+    addNewExpenditure(expenditure)
+
     //resetear el form
+    saveName('');
+    saveQuantify(0);
   }
 
   return ( 
