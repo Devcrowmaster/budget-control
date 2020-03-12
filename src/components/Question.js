@@ -1,9 +1,12 @@
 import React,{Fragment,useState} from 'react';
+import Error from './Error';
 
 const Question = () => {
 
   //Definir el State
   const [quantify,saveQuantify] = useState(0);
+
+  const [error, saveError] = useState(false);
 
   //Function que lee el presupuesto
   const defineBudget = e => {
@@ -13,16 +16,37 @@ const Question = () => {
     saveQuantify(parseInt(e.target.value,10));
   }
 
+  //Submit
+  const addBudget = e =>{
+    e.preventDefault();
+
+    //Validar
+    if(quantify < 1 || isNaN(quantify)){
+      saveError(true);
+      return;
+    }
+
+
+    //Si pasa la validacion
+    saveError(false);
+
+
+  }
+
+
   return ( 
     <Fragment>
       <h2>Coloca tu presupuesto</h2>
+      {error ?  <Error message="El  presupuesto es incorrecto"></Error> : null}
 
-      <form>
+      <form
+        onSubmit={addBudget}
+      >
         <input 
         type="number" 
         className="u-full-width"
         placeholder="Coloca tu presupuesto"
-        onChange={e => saveQuantify(parseInt(e.target.value,10))}
+        onChange={defineBudget}
         />
       <input 
         type="submit"
