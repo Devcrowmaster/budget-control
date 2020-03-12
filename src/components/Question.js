@@ -1,7 +1,7 @@
 import React,{Fragment,useState} from 'react';
 import Error from './Error';
 
-const Question = ({saveBudget,saveRemaining}) => {
+const Question = ({saveBudget,saveRemaining,updateQuestion}) => {
 
   //Definir el State
   const [quantify,saveQuantify] = useState(0);
@@ -32,6 +32,7 @@ const Question = ({saveBudget,saveRemaining}) => {
 
     saveBudget(quantify);
     saveRemaining(quantify);
+    updateQuestion(false);
 
 
   }

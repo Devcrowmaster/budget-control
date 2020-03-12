@@ -8,25 +8,32 @@ function App() {
 
   const [remaining,saveRemaining] = useState(0);
 
+  const [showQuestion, updateQuestion] = useState(true);
+
   return (
     <div className="App">
       <div className="container">
         <header>
           <h1>Gasto Semanal</h1>
           <div className="contenido-principal">
-            <Question
+            {showQuestion ? (
+              <Question
               saveBudget={saveBudget}
               saveRemaining={saveRemaining}
-            >
-            </Question>
-            <div className="row">
-              <div className="one-half column">
-                <Form />
+              updateQuestion={updateQuestion}
+              />
+            ) : (
+              <div className="row">
+                <div className="one-half column">
+                  <Form />
+                </div>
+                <div className="one-half column">
+                  2
+                </div>
               </div>
-              <div className="one-half column">
-                2
-              </div>
-            </div>
+            )}
+            
+            
           </div>
         </header>
       </div>
