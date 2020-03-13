@@ -34,11 +34,11 @@ function App() {
 
     const budgetRemaining = remaining - expenditure.quantify;
     saveRemaining(budgetRemaining);
-    
+
     //Resetear a false
     saveCreateExpenditure(false);
 
-  }, [expenditure]);
+  }, [expenditure,createExpenditure,expenditures,remaining]);
 
   return (
     <div className="App">
