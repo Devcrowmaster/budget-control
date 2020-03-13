@@ -28,15 +28,15 @@ function App() {
         ...expenditures,
         expenditure
       ])
+      //Resta del presupuesto actual
+  
+      const budgetRemaining = remaining - expenditure.quantify;
+      saveRemaining(budgetRemaining);
+  
+      //Resetear a false
+      saveCreateExpenditure(false);
     }
 
-    //Resta del presupuesto actual
-
-    const budgetRemaining = remaining - expenditure.quantify;
-    saveRemaining(budgetRemaining);
-
-    //Resetear a false
-    saveCreateExpenditure(false);
 
   }, [expenditure,createExpenditure,expenditures,remaining]);
 
