@@ -16,16 +16,23 @@ function App() {
 
   const [expenditure , saveExpenditure] = useState({});
 
+  const [createExpenditure,saveCreateExpenditure] = useState(false);
+
+
   //UseEffect que actualiza el restante
   useEffect(()=>{
-    saveExpenditures([
-      ...expenditures,
-      expenditure
-    ])
+    if(createExpenditure){
+
+      //Agrega el nuevo presupuesto
+      saveExpenditures([
+        ...expenditures,
+        expenditure
+      ])
+    }
+    //Resetear a false
+    saveCreateExpenditure(false);
 
   }, [expenditure]);
-
-  //Cuando agregamos un nuevo gasto
 
   return (
     <div className="App">
@@ -44,6 +51,7 @@ function App() {
                 <div className="one-half column">
                   <Form
                     saveExpenditure={saveExpenditure}
+                    saveCreateExpenditure={saveCreateExpenditure}
                   />
                 </div>
                 <div className="one-half column">

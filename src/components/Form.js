@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Error from './Error';
 import shortid from 'shortid';
 
-const Form = ({saveExpenditure}) => {
+const Form = ({saveExpenditure,saveCreateExpenditure}) => {
 
   const [name,saveName] = useState('');
 
@@ -31,7 +31,8 @@ const Form = ({saveExpenditure}) => {
 
     //pasar el gasto al componente principal
 
-    saveExpenditure(expenditure)
+    saveExpenditure(expenditure);
+    saveCreateExpenditure(true);
 
     //resetear el form
     saveName('');
