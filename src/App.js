@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Question from './components/Question';
 import Form from './components/Form';
 import List from './components/List';
+import BudgetControl from './components/BudgetControl';
 
 function App() {
   //Definir state
@@ -48,6 +49,11 @@ function App() {
                   <List 
                     expenditures={expenditures}
                   />
+                  <BudgetControl
+                    budget={budget}
+                    remaining={remaining}
+                  />
+
                 </div>
               </div>
             )}
