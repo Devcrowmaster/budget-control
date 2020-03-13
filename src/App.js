@@ -29,6 +29,12 @@ function App() {
         expenditure
       ])
     }
+
+    //Resta del presupuesto actual
+
+    const budgetRemaining = remaining - expenditure.quantify;
+    saveRemaining(budgetRemaining);
+    
     //Resetear a false
     saveCreateExpenditure(false);
 
